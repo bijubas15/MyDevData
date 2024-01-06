@@ -36,13 +36,13 @@ pipeline {
 
         stage('Build Application') {
             steps {
-                sh 'chmod +x ./Jenkins_Upgradev3/jenkins-plugin-model/ci/01-build.sh && ./jenkins-plugin-model/ci/01-build.sh'
+                sh 'chmod +x ./Jenkins_Upgradev3/jenkins-plugin-model/ci/01-build.sh && ./Jenkins_Upgradev3/jenkins-plugin-model/ci/01-build.sh'
             }
         }
 
         stage('Unit Test') {
             steps {
-                sh 'chmod +x ./Jenkins_Upgradev3/jenkins-plugin-model/ci/03-unit-test.sh && ./jenkins-plugin-model/ci/03-unit-test.sh'
+                sh 'chmod +x ./Jenkins_Upgradev3/jenkins-plugin-model/ci/03-unit-test.sh && ./Jenkins_Upgradev3/jenkins-plugin-model/ci/03-unit-test.sh'
                 mstest testResultsFile:"**/*.trx"
             }
         }
@@ -58,7 +58,7 @@ pipeline {
                     echo "Job Name: $jobName"
                     echo "Build Number: $buildNumber"
                 
-                withCredentials([usernamePassword(credentialsId: '1bb08ca6-f3cb-4ec7-953f-c3f7a93401ac', usernameVariable: 'DOCKER_HUB_USER', passwordVariable: 'DOCKER_HUB_PASSWORD')]) {                      
+                withCredentials([usernamePassword(credentialsId: 'bf63258c-680c-46b4-810e-9da7d87b298a', usernameVariable: 'DOCKER_HUB_USER', passwordVariable: 'DOCKER_HUB_PASSWORD')]) {                      
                     sh "chmod +x ./Jenkins_Upgradev3/jenkins-plugin-model/ci/04-push.sh"
                     sh "./Jenkins_Upgradev3/jenkins-plugin-model/ci/04-push.sh $buildNumber"
                 }
