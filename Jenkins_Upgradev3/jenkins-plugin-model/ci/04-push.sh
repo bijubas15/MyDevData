@@ -1,5 +1,5 @@
 #!/bin/bash
-docker image build -t abijubas/mydevdata:$1 -f Jenkins_Upgradev3/jenkins-plugin-model/src/demo2-publish/dockerfile .
+docker image build -t bijubs/mydevdata:$1 -f Jenkins_Upgradev3/jenkins-plugin-model/src/demo2-publish/dockerfile .
 
 if [ -z ${DOCKER_HUB_USER+x} ]
 then 
